@@ -81,7 +81,7 @@
   }
 
   .logo {
-    height: 37px;
+    height: 50px;
   }
 
   .logoContainer {
@@ -94,13 +94,11 @@
   .navRightContainer {
     display: flex;
     color: white;
-    /* color: var(--color-white); */
   }
 
   .loginButton {
     padding-right: 25px;
     color: white;
-    /* color: var(--color-white); */
     background-color: transparent;
     border: none;
     font: inherit;
@@ -114,8 +112,6 @@
     flex: 1;
     height: auto;
     width: 100%;
-    /* border-top-left-radius: 60px; */
-    /* background: var(--color-primary); */
   }
 
   .paper {

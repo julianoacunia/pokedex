@@ -7,6 +7,7 @@ const initialState: PokemonsState = {
   selectedIndex: -1,
   filterPokemon: [],
   pokemonDetail: undefined,
+  features: undefined,
 };
 
 export default initialState;

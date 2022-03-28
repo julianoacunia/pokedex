@@ -10,6 +10,7 @@ const reducer: Reducer<PokemonsState, ActionsType> = (state = initialState, acti
   switch (action.type) {
     case PokemonsActionsConst.GET_POKEMONS_FETCHING:
     case PokemonsActionsConst.GET_POKEMON_INFO_FETCHING:
+    case PokemonsActionsConst.GET_FEATURES_FETCHING:
       {
         return {
           ...state,
@@ -33,8 +34,17 @@ const reducer: Reducer<PokemonsState, ActionsType> = (state = initialState, acti
           pokemonDetail: action.payload,
         }
       }
+    case PokemonsActionsConst.GET_FEATURES_FULFILLED:
+      {
+        return {
+          ...state,
+          isFetching: false,
+          features: action.payload,
+        }
+      }
     case PokemonsActionsConst.GET_POKEMONS_REJECTED:
     case PokemonsActionsConst.GET_POKEMON_INFO_REJECTED:
+    case PokemonsActionsConst.GET_FEATURES_REJECTED:
       {
         return {
           ...state,

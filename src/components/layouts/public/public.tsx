@@ -1,7 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ReduxProps } from './';
 import css from './public.module.css';
+import uniq from 'lodash.uniq';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
 export interface Props extends ReduxProps {
   children: React.ReactNode;
@@ -12,10 +15,20 @@ const PublicLayout: React.FC<Props> = (props) => {
 
   const {
     children,
+    pokemons,
   } = props;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  const categories: any = [];
+  pokemons.forEach((pokemon) => {
+    pokemon.types.forEach((item: any) => {
+      categories.push(item.type.name)
+    })
+  });
+
+  const categoriesFilter = uniq(categories);
 
   return (
     <>
@@ -26,17 +39,14 @@ const PublicLayout: React.FC<Props> = (props) => {
               <div className={css.logoContainer} onClick={() => navigate('/')}>
                 <img className={css.logo} src='https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi.svg?sanitize=true' alt='logo' />
               </div>
-            </div>
-            <div className={css.rightIcons}>
-              <div className={css.logoContainer}>
-                <div className={css.navRightContainer}>
-                  <button
-                    className={css.loginButton}
-                    test-id="login-button-home"
-                  >
-                    Iniciar Sesión
-                  </button>
-                </div>
+              <div className={css.categoriesContainer}>
+                {/* <Select
+                  value={age}
+                  label="Categorías"
+                  onChange={handleChange}
+                >
+                  {
+                </Select> */}
               </div>
             </div>
           </div>

@@ -1,28 +1,19 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ReduxProps } from '.';
-import PokemonCard from 'src/components/shared/pokemon-card';
-import CircularProgress from '@mui/material/CircularProgress';
-import { InputBase } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search'
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import IconButton from '@mui/material/IconButton';
 import css from './pokemon-detail.module.css';
-import axios from 'axios';
 import cx from 'classnames';
 
 const Home: React.FC<ReduxProps> = (props) => {
   const {
-    isFetching,
     getPokemons,
     pokemons,
-    filterPokemons,
-    filterPokemon,
-    getPokemonInfo
+    getPokemonInfo,
+    pokemonDetail,
+    getFeatures,
+    pokemonFeatures,
   } = props;
 
-  const [search, setSearch] = useState('');
   const location = useLocation();
   const pokemonId = location.pathname.split('/')[1];
 
@@ -33,22 +24,16 @@ const Home: React.FC<ReduxProps> = (props) => {
   let pokemon;
   if (pokemonId) {
     pokemon = pokemons.find((item) => item.id.toString() === pokemonId);
-    console.log('POKEMON', pokemon);
   }
-
-  // const getInfoPokemon = useCallback(async () => {
-  //   const response = await axios.get(`https://pokeapi.co/api/v2/ability/${pokemonId}`)
-  //   return response.data;
-  // }, [pokemonId]);
 
   useEffect(() => {
     getPokemonInfo(pokemonId);
-  }, [getPokemonInfo, pokemonId])
+    getFeatures(pokemonId);
+  }, [getPokemonInfo, pokemonId, getFeatures])
 
-  console.log('location', location.pathname.split('/')[1]);
-
-  // const asd = getInfoPokemon();
-  // console.log('RESPOSE',);
+  const capitalizeFirstLetter = (letter: string) => {
+    return letter.charAt(0).toUpperCase() + letter.slice(1);
+  }
 
   return (
     <>
@@ -69,6 +54,7 @@ const Home: React.FC<ReduxProps> = (props) => {
                 const isPoison = item.type.name === 'poison';
                 const isGrass = item.type.name === 'grass';
                 const isFlying = item.type.name === 'flying';
+                const isWater = item.type.name === 'water';
                 return (
                   <div className={cx({
                     [css.pokemonTypeFire]: isFire,
@@ -77,8 +63,9 @@ const Home: React.FC<ReduxProps> = (props) => {
                     [css.pokemonTypePoison]: isPoison,
                     [css.pokemonTypeGrass]: isGrass,
                     [css.pokemonTypeFlying]: isFlying,
+                    [css.pokemonTypeWater]: isWater
                   })}>
-                    {item.type.name}
+                    {capitalizeFirstLetter(item.type.name)}
                   </div>
                 )
               })
@@ -90,8 +77,29 @@ const Home: React.FC<ReduxProps> = (props) => {
           </div>
         </div>
         <div className={css.secondColumn}>
-          <div className={css.containerInfo}>
-
+          <div className={css.containerGeneralInformation}>
+            <div className={css.containerInfo}>
+              <h2>Abilities</h2>
+              {pokemonDetail.effect_entries.map((effect: any) => {
+                if (effect.language.name === 'en') {
+                  return (
+                    <p>{effect.effect}</p>
+                  );
+                }
+                return undefined;
+              })}
+            </div>
+            <div className={css.containerInfo}>
+              <h2>Characteristics</h2>
+              {pokemonFeatures.descriptions.map((description: any) => {
+                if (description.language.name === 'en') {
+                  return (
+                    <p>{description.description}</p>
+                  );
+                }
+                return undefined;
+              })}
+            </div>
           </div>
         </div>
       </div>

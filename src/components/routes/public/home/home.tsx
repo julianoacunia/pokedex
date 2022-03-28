@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { ReduxProps } from '.';
 import PokemonCard from 'src/components/shared/pokemon-card';
 import CircularProgress from '@mui/material/CircularProgress';
-import { InputBase } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search'
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import IconButton from '@mui/material/IconButton';
 import css from './home.module.css'
 import TextField from '@mui/material/TextField';
-import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
+import Autocomplete from '@mui/material/Autocomplete';
+import { useNavigate } from 'react-router-dom';
 
 
 const Home: React.FC<ReduxProps> = (props) => {
@@ -26,9 +24,7 @@ const Home: React.FC<ReduxProps> = (props) => {
   }, [getPokemons]);
 
   const [search, setSearch] = useState('');
-  console.log('SEARCH', search);
   const onSearch = () => {
-    // const response = pokemons.find((pokemon) => pokemon.name === search || pokemon.id.toString() === search);
     const listFilter: any = [];
     pokemons.forEach((pokemon) => {
       if (pokemon.name.toLowerCase().includes(search.toLowerCase())) {
@@ -38,22 +34,13 @@ const Home: React.FC<ReduxProps> = (props) => {
         listFilter.push(pokemon);
       }
     });
-    console.log('listFilter', listFilter);
     filterPokemons(listFilter);
     if (search === '') {
-      // console.log('ESTOY VACIO');
       filterPokemons(pokemons);
     }
   }
-  interface FilmOptionType {
-    inputValue?: string;
-    title: string;
-    year?: number;
-  }
 
-  const filter = createFilterOptions<FilmOptionType>();
-
-  console.log('FILTER', filterPokemon.length)
+  const navigate = useNavigate();
 
   return (
     <>
@@ -74,50 +61,32 @@ const Home: React.FC<ReduxProps> = (props) => {
                 }}
                 options={filterPokemon.map((item) => item.name)}
                 renderOption={(option: any) => {
-                  console.log('option', option)
+                  const selectedPokemon = filterPokemon.find((item) => item.name === option.key);
                   return (
-                    <div className={css.optionStyle}>
+                    <div className={css.optionStyle} onClick={() => navigate(`/${selectedPokemon.id}`)}>
                       {option.key}
                     </div>
                   )
                 }}
-                noOptionsText={search ? 'ACA' : 'no se encontraron opciones'}
                 selectOnFocus
                 clearOnBlur
                 handleHomeEndKeys
-                id="free-solo-with-text-demo"
                 sx={{ width: 300 }}
                 freeSolo
                 renderInput={(params) => (
                   <div>
-                    {/* <InputBase
-                      {...params}
-                      value={search}
-                      placeholder='Buscar'
-                      onChange={(e) => setSearch(e.target.value)}
-                      onKeyDown={() => onSearch()}
-                    />
-                    <IconButton onClick={onSearch}>
-                      <SearchIcon />
-                    </ IconButton> */}
                     <TextField
                       {...params}
                       value={search}
                       label={search}
-                      // disabled={disabled}
                       onKeyDown={() => onSearch()}
                       onChange={(e) => setSearch(e.target.value)}
                       className={css.textFieldStyle}
+                      placeholder='Buscar'
                     />
                   </div>
                 )}
               />
-              {/* <InputBase
-                value={search}
-                placeholder='Buscar'
-                onChange={(e) => setSearch(e.target.value)}
-                onKeyDown={() => onSearch()}
-              /> */}
             </Paper>
           </Grid>
         </div>

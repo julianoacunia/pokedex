@@ -25,14 +25,20 @@ export const getPokemonInfo = (pokemonId: string) => async (dispatch: ThunkDispa
   dispatch(ACTIONS.getPokemonInfoFetching());
   try {
     const response = await API.getPokemonInfo(pokemonId);
-    // const parseData = [];
-    // for (const item of response.data.results) {
-    //   const pokemon = await axios.get(item.url);
-    //   parseData.push(pokemon.data);
-    // }
     return dispatch(ACTIONS.getPokemonInfoFulfilled(response.data));
   }
   catch (error: any) {
     return dispatch(ACTIONS.getPokemonInfoRejected(error));
+  }
+};
+
+export const getFeatures = (pokemonId: string) => async (dispatch: ThunkDispatch<DVPState, {}, AnyAction>) => {
+  dispatch(ACTIONS.getFeaturesFetching());
+  try {
+    const response = await API.getFeatures(pokemonId);
+    return dispatch(ACTIONS.getFeaturesFulfilled(response.data));
+  }
+  catch (error: any) {
+    return dispatch(ACTIONS.getFeaturesRejected(error));
   }
 };

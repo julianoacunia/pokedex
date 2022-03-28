@@ -4,9 +4,11 @@ import { bindActionCreators, Dispatch } from 'redux';
 import Component from './public';
 
 export interface StateProps {
+  pokemons: DVPState['pokemon']['pokemons'];
 }
 
 const mapStateToProps = (state: DVPState) => ({
+  pokemons: state.pokemon.pokemons,
 });
 
 export interface DispatchProps {

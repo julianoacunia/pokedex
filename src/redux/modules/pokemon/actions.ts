@@ -33,3 +33,17 @@ export const filterPokemons = (data: any) => action(
   TYPES.PokemonsActionsConst.FILTER_POKEMONS,
   data
 );
+
+export const getFeaturesFetching = () => action(
+  TYPES.PokemonsActionsConst.GET_FEATURES_FETCHING
+);
+
+export const getFeaturesFulfilled = (data: any) => action(
+  TYPES.PokemonsActionsConst.GET_FEATURES_FULFILLED,
+  data
+);
+
+export const getFeaturesRejected = (error: TYPES.Error) => action(
+  TYPES.PokemonsActionsConst.GET_FEATURES_REJECTED,
+  error
+);

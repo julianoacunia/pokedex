@@ -5,15 +5,17 @@
   color: black;
 }
 
-.firstColumn, .secondColumn {
-  width: 100%;
-}
-
-.firstColumn {
+.firstColumn,.secondColumn {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  font-family: "Flexo-Medium",arial,sans-serif;
+}
+
+.secondColumn {
+  font-family: "Flexo-Medium",arial,sans-serif;
 }
 
 .img {
@@ -117,4 +119,49 @@
   padding: 3px;
   margin-left: 10px;
   background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%)
+}
+
+.pokemonTypeWater {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--color-white);
+  border-radius: 4px;
+  padding: 3px;
+  margin-left: 10px;
+  background-color: var(--color-water);
+}
+
+.containerInfo {
+  width: 80%;
+}
+
+@media (min-width: 1200px) {
+  .container{
+    flex-direction: row;
+  }
+
+  .firstColumn,.secondColumn {
+    width: 50%;
+  }
+
+  .secondColumn {
+    text-align: start;
+    font-size: 20px;
+  }
+
+  .containerGeneralInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border: 1px solid var(--color-black);
+    background-color: var(--color-gray);
+    border-radius: 10px;
+  }
+
+  .pokemonId, .pokemonName, .pokemonTypeBug, .pokemonTypeFire, .pokemonTypeFlying, .pokemonTypeGrass,.pokemonTypeNormal, .pokemonTypePoison, .pokemonTypeWater {
+    font-size: 20px;
+  }
 }

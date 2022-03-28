@@ -14,3 +14,16 @@
   width: 100%;
 }
 
+.optionStyle {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.optionStyle:hover {
+  cursor: pointer;
+}
+
+.search {
+  margin: 10px;
+}
+
