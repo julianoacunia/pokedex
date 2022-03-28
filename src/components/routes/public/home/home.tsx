@@ -63,7 +63,7 @@ const Home: React.FC<ReduxProps> = (props) => {
                 renderOption={(option: any) => {
                   const selectedPokemon = filterPokemon.find((item) => item.name === option.key);
                   return (
-                    <div className={css.optionStyle} onClick={() => navigate(`/${selectedPokemon.id}`)}>
+                    <div className={css.optionStyle} onClick={() => navigate(`/pokemon/${selectedPokemon.id}`)}>
                       {option.key}
                     </div>
                   )
