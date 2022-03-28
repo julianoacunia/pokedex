@@ -1,0 +1,120 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: black;
+}
+
+.firstColumn, .secondColumn {
+  width: 100%;
+}
+
+.firstColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 80%;
+  height: auto;
+  background-color: var(--color-gray);
+}
+
+.containerNameAndId {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 5px 0;
+  width: 80%;
+}
+
+.pokemonName {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.pokemonId {
+  display: flex;
+  justify-content: center;
+  width: 45px;
+  background-color: var(--color-primary);
+  font-size: 15px;
+  color: var(--color-white);
+  border-radius: 4px;
+  padding: 3px;
+}
+
+.containerImage {
+  width: 100%;
+}
+
+.ContainerPokemonType {
+  display: flex;
+}
+
+.pokemonTypeFire {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-fire);
+  font-size: 15px;
+  color: var(--color-white);
+  border-radius: 4px;
+  padding: 3px;
+  margin-left: 10px;
+}
+
+.pokemonTypeNormal {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-normal);
+  font-size: 15px;
+  color: var(--color-white);
+  border-radius: 4px;
+  padding: 3px;
+  margin-left: 10px;
+}
+
+.pokemonTypeBug {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-bug);
+  font-size: 15px;
+  color: var(--color-white);
+  border-radius: 4px;
+  padding: 3px;
+  margin-left: 10px;
+}
+
+.pokemonTypePoison {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-poison);
+  font-size: 15px;
+  color: var(--color-white);
+  border-radius: 4px;
+  padding: 3px;
+  margin-left: 10px;
+}
+
+.pokemonTypeGrass {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-grass);
+  font-size: 15px;
+  color: var(--color-white);
+  border-radius: 4px;
+  padding: 3px;
+  margin-left: 10px;
+}
+
+.pokemonTypeFlying {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--color-white);
+  border-radius: 4px;
+  padding: 3px;
+  margin-left: 10px;
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%)
+}

@@ -1,0 +1,21 @@
+.pokemonCard {
+  margin: 10px;
+  background-color: var(--color-gray);
+}
+
+.pokemonName {
+  font-size: 25px;
+}
+
+.pokemonId {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  width: 45px;
+  background-color: var(--color-primary);
+  font-size: 20px;
+  color: var(--color-white);
+  border-radius: 4px;
+}

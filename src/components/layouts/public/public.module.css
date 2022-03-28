@@ -1,0 +1,128 @@
+.headerContainer {
+  position: relative;
+}
+
+.header {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 15px;
+  background: var(--color-primary);
+}
+
+.leftIcons {
+  display: flex;
+  width: 50%;
+}
+
+.rightIcons {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.logoContainer:hover {
+  cursor: pointer;
+}
+
+.logo {
+  height: 32px;
+}
+
+.paper {
+  animation: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  min-height: calc(100vh - 545px);
+  width: 100%;
+  /* background-color: var(--color-v2-light-grey); */
+  color: white;
+  text-align: center;
+}
+
+.navRightContainer {
+  display: none
+}
+
+@media (min-width: 1200px) {
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 22px 100px;
+  }
+
+  .leftIcons {
+    order: 1;
+    width: auto;
+  }
+
+  .rightIcons {
+    order: 4;
+    width: auto;
+  }
+
+  .logo {
+    height: 37px;
+  }
+
+  .logoContainer {
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding-left: 0;
+  }
+
+  .navRightContainer {
+    display: flex;
+    color: white;
+    /* color: var(--color-white); */
+  }
+
+  .loginButton {
+    padding-right: 25px;
+    color: white;
+    /* color: var(--color-white); */
+    background-color: transparent;
+    border: none;
+    font: inherit;
+    font-family: 'WorkSans-SemiBold';
+  }
+
+  .layoutContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    height: auto;
+    width: 100%;
+    /* border-top-left-radius: 60px; */
+    /* background: var(--color-primary); */
+  }
+
+  .paper {
+    flex-grow: 1;
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+  }
+
+}
