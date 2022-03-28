@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.pokemonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.optionStyle {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.optionStyle:hover {
+  cursor: pointer;
+}
+
+.search {
+  margin: 10px;
+}

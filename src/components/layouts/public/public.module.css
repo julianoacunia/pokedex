@@ -49,13 +49,8 @@
   height: auto;
   min-height: calc(100vh - 545px);
   width: 100%;
-  /* background-color: var(--color-v2-light-grey); */
   color: white;
   text-align: center;
-}
-
-.navRightContainer {
-  display: none
 }
 
 @media (min-width: 1200px) {
@@ -89,20 +84,6 @@
     justify-content: flex-start;
     box-sizing: border-box;
     padding-left: 0;
-  }
-
-  .navRightContainer {
-    display: flex;
-    color: white;
-  }
-
-  .loginButton {
-    padding-right: 25px;
-    color: white;
-    background-color: transparent;
-    border: none;
-    font: inherit;
-    font-family: 'WorkSans-SemiBold';
   }
 
   .layoutContent {

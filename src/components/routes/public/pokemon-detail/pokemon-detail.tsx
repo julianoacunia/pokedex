@@ -15,7 +15,7 @@ const Home: React.FC<ReduxProps> = (props) => {
   } = props;
 
   const location = useLocation();
-  const pokemonId = location.pathname.split('/')[1];
+  const pokemonId = location.pathname.split('pokemon/')[1];
 
   useEffect(() => {
     getPokemons();

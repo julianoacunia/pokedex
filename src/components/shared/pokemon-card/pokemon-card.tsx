@@ -20,7 +20,7 @@ const CategoryCard: React.FC<Props> = (props: Props) => {
   const navigate = useNavigate();
 
   return (
-    <Card className={css.pokemonCard} onClick={() => navigate(`/${pokemon.id}`)}>
+    <Card className={css.pokemonCard} onClick={() => navigate(`/pokemon/${pokemon.id}`)}>
       <CardActionArea>
         <CardContent>
           <div className={css.pokemonId}>
