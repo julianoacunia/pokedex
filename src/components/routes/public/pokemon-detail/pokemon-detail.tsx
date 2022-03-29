@@ -82,7 +82,7 @@ const Home: React.FC<ReduxProps> = (props) => {
           <div className={css.containerGeneralInformation}>
             <div className={css.containerInfo}>
               <h2>Abilities</h2>
-              {pokemonDetail.effect_entries.map((effect: any) => {
+              {pokemonDetail.effect_entries.map((effect) => {
                 if (effect.language.name === 'en') {
                   return (
                     <p>{effect.effect}</p>
@@ -93,7 +93,7 @@ const Home: React.FC<ReduxProps> = (props) => {
             </div>
             <div className={css.containerInfo}>
               <h2>Characteristics</h2>
-              {pokemonFeatures.descriptions.map((description: any) => {
+              {pokemonFeatures.descriptions.map((description) => {
                 if (description.language.name === 'en') {
                   return (
                     <p>{description.description}</p>

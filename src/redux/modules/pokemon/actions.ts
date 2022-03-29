@@ -19,7 +19,7 @@ export const getPokemonInfoFetching = () => action(
   TYPES.PokemonsActionsConst.GET_POKEMON_INFO_FETCHING
 );
 
-export const getPokemonInfoFulfilled = (data: any) => action(
+export const getPokemonInfoFulfilled = (data: TYPES.PokemonInfo) => action(
   TYPES.PokemonsActionsConst.GET_POKEMON_INFO_FULFILLED,
   data
 );
@@ -38,7 +38,7 @@ export const getFeaturesFetching = () => action(
   TYPES.PokemonsActionsConst.GET_FEATURES_FETCHING
 );
 
-export const getFeaturesFulfilled = (data: any) => action(
+export const getFeaturesFulfilled = (data: TYPES.PokemonFeatures) => action(
   TYPES.PokemonsActionsConst.GET_FEATURES_FULFILLED,
   data
 );

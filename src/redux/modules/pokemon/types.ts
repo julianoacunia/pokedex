@@ -7,8 +7,8 @@ export interface PokemonsState {
   isFetching: boolean;
   selectedIndex: number;
   filterPokemon: Pokemon[];
-  pokemonDetail: any;
-  features: any;
+  pokemonDetail: PokemonInfo;
+  features: PokemonFeatures;
 }
 
 export interface Pokemon {
@@ -33,6 +33,94 @@ export interface Pokemon {
   stats: Stats[],
   types: Types[],
   past_types: PastTypes[]
+}
+
+export interface PokemonInfo {
+  id: number,
+  name: string,
+  is_main_series: boolean,
+  generation: {
+    name: string,
+    url: string
+  },
+  names: [
+    {
+      name: string,
+      language: {
+        name: string,
+        url: string
+      }
+    }
+  ],
+  effect_entries: [
+    {
+      effect: string,
+      short_effect: string,
+      language: {
+        name: string,
+        url: string
+      }
+    }
+  ],
+  effect_changes: [
+    {
+      version_group: {
+        name: string,
+        url: string
+      },
+      effect_entries: [
+        {
+          effect: string,
+          language: {
+            name: string,
+            url: string
+          }
+        }
+      ]
+    }
+  ],
+  flavor_text_entries: [
+    {
+      flavor_text: string,
+      language: {
+        name: string,
+        url: string,
+      },
+      version_group: {
+        name: string
+        url: string
+      }
+    }
+  ],
+  pokemon: [
+    {
+      is_hidden: boolean,
+      slot: number,
+      pokemon: {
+        name: string,
+        url: string
+      }
+    }
+  ]
+}
+
+export interface PokemonFeatures {
+  id: number,
+  gene_modulo: number,
+  possible_values: number[],
+  highest_stat: {
+    name: string,
+    url: string
+  },
+  descriptions: [
+    {
+      description: string,
+      language: {
+        name: string,
+        url: string
+      }
+    }
+  ]
 }
 
 interface Abilities {
