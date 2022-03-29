@@ -8,7 +8,12 @@ import css from './pokemons.module.css'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useNavigate } from 'react-router-dom';
+import { Pokemon } from 'src/redux/modules/pokemon/types';
 
+interface AutocompleteOptions {
+  value: string;
+  label: string;
+}
 
 const Home: React.FC<ReduxProps> = (props) => {
   const {
@@ -25,7 +30,7 @@ const Home: React.FC<ReduxProps> = (props) => {
 
   const [search, setSearch] = useState('');
   const onSearch = () => {
-    const listFilter: any = [];
+    const listFilter: Pokemon[] = [];
     pokemons.forEach((pokemon) => {
       if (pokemon.name.toLowerCase().includes(search.toLowerCase())) {
         listFilter.push(pokemon);
@@ -59,15 +64,25 @@ const Home: React.FC<ReduxProps> = (props) => {
                   setSearch(event.target.value)
                   onSearch()
                 }}
-                options={filterPokemon.map((item) => item.name)}
+                options={filterPokemon.map((item) => {
+                  return {
+                    value: item.name,
+                    label: item.name
+                  }
+                })}
                 renderOption={(option: any) => {
                   const selectedPokemon = filterPokemon.find((item) => item.name === option.key);
+                  if (!selectedPokemon) {
+                    return null;
+                  }
                   return (
                     <div className={css.optionStyle} onClick={() => navigate(`/pokemon/${selectedPokemon.id}`)}>
                       {option.key}
                     </div>
                   )
                 }}
+                clearIcon={() => setSearch('')}
+                getOptionLabel={(option: AutocompleteOptions) => option.label ? option.label : ''}
                 selectOnFocus
                 clearOnBlur
                 handleHomeEndKeys
@@ -81,7 +96,6 @@ const Home: React.FC<ReduxProps> = (props) => {
                       label={search}
                       onKeyDown={() => onSearch()}
                       onChange={(e) => setSearch(e.target.value)}
-                      className={css.textFieldStyle}
                       placeholder='Buscar'
                     />
                   </div>

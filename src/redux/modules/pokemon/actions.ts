@@ -29,7 +29,7 @@ export const getPokemonInfoRejected = (error: TYPES.Error) => action(
   error
 );
 
-export const filterPokemons = (data: any) => action(
+export const filterPokemons = (data: TYPES.Pokemon[]) => action(
   TYPES.PokemonsActionsConst.FILTER_POKEMONS,
   data
 );

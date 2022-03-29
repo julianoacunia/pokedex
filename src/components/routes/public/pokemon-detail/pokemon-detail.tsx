@@ -4,6 +4,7 @@ import { ReduxProps } from '.';
 import css from './pokemon-detail.module.css';
 import cx from 'classnames';
 import { capitalizeFirstLetter } from 'src/helper';
+import { Types } from 'src/redux/modules/pokemon/types';
 
 const Home: React.FC<ReduxProps> = (props) => {
   const {
@@ -32,6 +33,10 @@ const Home: React.FC<ReduxProps> = (props) => {
     getFeatures(pokemonId);
   }, [getPokemonInfo, pokemonId, getFeatures])
 
+  if (!pokemon) {
+    return null;
+  }
+
   return (
     <>
       <div className={css.container}>
@@ -44,7 +49,7 @@ const Home: React.FC<ReduxProps> = (props) => {
               {capitalizeFirstLetter(pokemon.name)}
             </div>
             <div className={css.ContainerPokemonType}>
-              {pokemon.types.map((item: any) => {
+              {pokemon.types.map((item: Types) => {
                 const isFire = item.type.name === 'fire';
                 const isNormal = item.type.name === 'normal';
                 const isBug = item.type.name === 'bug';

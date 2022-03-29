@@ -7,9 +7,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { capitalizeFirstLetter } from 'src/helper';
+import { Pokemon } from 'src/redux/modules/pokemon/types';
 
 interface Props {
-  pokemon: any;
+  pokemon: Pokemon;
 }
 
 const CategoryCard: React.FC<Props> = (props: Props) => {
