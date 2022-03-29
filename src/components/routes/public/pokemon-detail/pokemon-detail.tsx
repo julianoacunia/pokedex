@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { ReduxProps } from '.';
 import css from './pokemon-detail.module.css';
 import cx from 'classnames';
+import { capitalizeFirstLetter } from 'src/helper';
 
 const Home: React.FC<ReduxProps> = (props) => {
   const {
@@ -31,10 +32,6 @@ const Home: React.FC<ReduxProps> = (props) => {
     getFeatures(pokemonId);
   }, [getPokemonInfo, pokemonId, getFeatures])
 
-  const capitalizeFirstLetter = (letter: string) => {
-    return letter.charAt(0).toUpperCase() + letter.slice(1);
-  }
-
   return (
     <>
       <div className={css.container}>
@@ -44,7 +41,7 @@ const Home: React.FC<ReduxProps> = (props) => {
               {`#${pokemon.id}`}
             </div>
             <div className={css.pokemonName}>
-              {pokemon.name}
+              {capitalizeFirstLetter(pokemon.name)}
             </div>
             <div className={css.ContainerPokemonType}>
               {pokemon.types.map((item: any) => {

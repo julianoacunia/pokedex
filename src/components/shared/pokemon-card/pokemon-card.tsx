@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import css from './pokemon-card.module.css';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { capitalizeFirstLetter } from 'src/helper';
 
 interface Props {
   pokemon: any;
@@ -36,7 +36,7 @@ const CategoryCard: React.FC<Props> = (props: Props) => {
         />
         <CardContent>
           <Typography className={css.pokemonName} gutterBottom variant="body2" component="p">
-            {pokemon.name}
+            {capitalizeFirstLetter(pokemon.name)}
           </Typography>
         </CardContent>
       </CardActionArea>
