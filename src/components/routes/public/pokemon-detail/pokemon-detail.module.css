@@ -136,6 +136,18 @@
   width: 80%;
 }
 
+.containerGeneralInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  border: 1px solid var(--color-black);
+  background-color: var(--color-gray);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
 @media (min-width: 1200px) {
   .container{
     flex-direction: row;
@@ -151,14 +163,7 @@
   }
 
   .containerGeneralInformation {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    border: 1px solid var(--color-black);
-    background-color: var(--color-gray);
-    border-radius: 10px;
+    margin-top: none;
   }
 
   .pokemonId, .pokemonName, .pokemonTypeBug, .pokemonTypeFire, .pokemonTypeFlying, .pokemonTypeGrass,.pokemonTypeNormal, .pokemonTypePoison, .pokemonTypeWater {
