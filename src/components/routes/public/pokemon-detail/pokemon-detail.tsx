@@ -101,6 +101,8 @@ const Home: React.FC<ReduxProps> = (props) => {
             </div>
             <div className={css.containerInfo}>
               <h2>Characteristics</h2>
+              <h3>Weight: {pokemon.weight}</h3>
+              <h3>Height: {pokemon.height}</h3>
               {pokemonFeatures.descriptions.map((description) => {
                 if (description.language.name === 'en') {
                   return (
