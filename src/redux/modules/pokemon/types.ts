@@ -7,8 +7,8 @@ export interface PokemonsState {
   isFetching: boolean;
   selectedIndex: number;
   filterPokemon: Pokemon[];
-  pokemonDetail: PokemonInfo;
-  features: PokemonFeatures;
+  pokemonDetail?: PokemonInfo;
+  features?: PokemonFeatures;
 }
 
 export interface Pokemon {

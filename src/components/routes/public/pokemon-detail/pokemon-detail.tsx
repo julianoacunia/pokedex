@@ -37,6 +37,14 @@ const Home: React.FC<ReduxProps> = (props) => {
     return null;
   }
 
+  if (!pokemonDetail) {
+    return null;
+  }
+
+  if (!pokemonFeatures) {
+    return null;
+  }
+
   return (
     <>
       <div className={css.container}>
