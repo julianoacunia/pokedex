@@ -1,29 +1,44 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  background-color: var(--color-home);
+  height: 95vh;
+}
+
+.logo {
+  width: 80%;
+}
+
+.containerImg {
+  margin-top: 30px;
   width: 100%;
 }
 
-.pokemonContainer {
+.containerButton {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  margin-top: 30px;
 }
 
-.optionStyle {
-  font-size: 20px;
+.button {
+  background-color: var(--color-primary);
+  border: none;
+  color: var(--color-white);
   padding: 10px;
+  font-size: 18px;
+  border-radius: 4px;
 }
 
-.optionStyle:hover {
+.button:hover {
   cursor: pointer;
 }
 
-.search {
-  margin: 10px;
+@media (min-width:1200px) {
+  .container {
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
-
