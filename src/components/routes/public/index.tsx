@@ -10,9 +10,9 @@ const PublicRoutes: React.FC<{}> = () => {
     <PublicLayout>
       <Suspense fallback={<div />}>
         <Routes>
+          <Route path='/' element={<Home />} />
           <Route path='/pokemons' element={<Pokemons />} />
           <Route path='/pokemon/:id' element={<PokemonDetail />} />
-          <Route path='/' element={<Home />} />
           <Route element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
